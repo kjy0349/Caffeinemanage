@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "685901057416",
+    "project_id": "caffeinemanage",
+    "storage_bucket": "caffeinemanage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685901057416:android:d9221c3dbb91ec3356fe3d",
+        "android_client_info": {
+          "package_name": "com.example.caffeinemanage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685901057416-5m840rcnuqorqb6i14aq1oclrfttpkaa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caffeinemanage",
+            "certificate_hash": "2a5d8587b7703ce67a2d2cb6fe3ca54b99de3620"
+          }
+        },
+        {
+          "client_id": "685901057416-rhv9ngush4gteh3labkujtjd2e1ii512.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeJgl7yhnjtWFhT4zEFOWs5tq4Ih-St38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685901057416-rhv9ngush4gteh3labkujtjd2e1ii512.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
