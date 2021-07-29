@@ -3,21 +3,21 @@
     <item
         android:id="@+id/page_1"
         android:enabled="true"
-        android:icon="@drawable/coffee_cup"
+        android:icon="@drawable/coffee_bean"
         android:title="카페인"/>
     <item
         android:id="@+id/page_2"
         android:enabled="true"
-        android:icon="@drawable/coffee_cup"
+        android:icon="@drawable/calendar"
         android:title="달력"/>
     <item
         android:id="@+id/page_3"
         android:enabled="true"
-        android:icon="@drawable/coffee_cup"
+        android:icon="@drawable/magnifier"
         android:title="찾기"/>
     <item
         android:id="@+id/page_4"
         android:enabled="true"
-        android:icon="@drawable/coffee_cup"
+        android:icon="@drawable/settings"
         android:title="설정"/>
 </menu>

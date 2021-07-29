@@ -4,11 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
-import com.google.android.material.bottomnavigation.BottomNavigationMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -20,19 +22,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val leap = findViewById(R.id.leap) as ImageView
+        val fragmentmanager = supportFragmentManager
+        fragmentmanager.beginTransaction().add(R.id.fragment_frame, FirstFragment()).commit()
 
-        Glide.with(this).load(R.raw.updownleap).override(1000, 1000).into(leap)
-
-
-        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        val btnNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        btnNav.setOnNavigationItemSelectedListener{ item ->
             when(item.itemId) {
                 R.id.page_1 -> {
-                    // Respond to navigation item 1 click
+                    fragmentmanager.beginTransaction().replace(R.id.fragment_frame, FirstFragment()).commit()
                     true
                 }
                 R.id.page_2 -> {
-                    // Respond to navigation item 2 click
+                    fragmentmanager.beginTransaction().replace(R.id.fragment_frame, SecondFragment()).commit()
                     true
                 }
                 R.id.page_3 -> {
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        BottomNavigationView.OnNavigationItemReselectedListener { item ->
+        btnNav.setOnNavigationItemReselectedListener { item ->
             when(item.itemId) {
                 R.id.page_1 -> {
                     // Respond to navigation item 1 reselection
