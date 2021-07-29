@@ -40,31 +40,14 @@ class MainActivity : AppCompatActivity() {
                     // Respond to navigation item 2 click
                     true
                 }
-                R.id.page_3 -> {
-                    // Respond to navigation item 2 click
+                R.id.page_4 -> {
+                    fragmentmanager.beginTransaction().replace(R.id.fragment_frame, SettingFragment()).commit()
                     true
                 }
 
                 else -> false
             }
         }
-        btnNav.setOnNavigationItemReselectedListener { item ->
-            when(item.itemId) {
-                R.id.page_1 -> {
-                    // Respond to navigation item 1 reselection
-                }
-                R.id.page_2 -> {
-                    // Respond to navigation item 1 reselection
-                }
-                R.id.page_3 -> {
-                    // Respond to navigation item 1 reselection
-                }
-                R.id.page_4 -> {
-                    // Respond to navigation item 1 reselection
-                }
-            }
-        }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
