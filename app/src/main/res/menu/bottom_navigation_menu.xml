@@ -3,12 +3,12 @@
     <item
         android:id="@+id/page_1"
         android:enabled="true"
-        android:icon="@drawable/coffee_bean"
+        android:icon="@drawable/coffee_seed"
         android:title="카페인"/>
     <item
         android:id="@+id/page_2"
         android:enabled="true"
-        android:icon="@drawable/calendar"
+        android:icon="@drawable/calendar2"
         android:title="달력"/>
     <item
         android:id="@+id/page_3"
@@ -18,6 +18,6 @@
     <item
         android:id="@+id/page_4"
         android:enabled="true"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/settings3"
         android:title="설정"/>
 </menu>
