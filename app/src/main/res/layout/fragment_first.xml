@@ -32,4 +32,13 @@
         android:text="0 mg"
         android:textSize="30sp" />
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:layout_below="@id/caffeine_result"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
