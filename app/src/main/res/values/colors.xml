@@ -10,4 +10,9 @@
     <color name="my_app_primary_color">#03A9F4</color>
     <color name="my_app_error_color">#FF0000</color>
     <color name="my_app_background_color">#FFFFFFFF</color>
+    <color name="colorPrimaryDark">#262626</color>
+    <color name="colorPrimaryVeryDark">#1E1E1E</color>
+    <color name="colorPrimaryLight">#323232</color>
+    <color name="colorPrimaryVeryLight">#3C3C3C</color>
+    <color name="colorAccent">#2D2D2D</color>
 </resources>
