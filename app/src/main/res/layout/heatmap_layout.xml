@@ -5,13 +5,43 @@
     <data>
         <variable
             name="viewModel"
-            type="com.eudycontreras.calendarheatmap.SomeViewModel"/>
+            type="com.eudycontreras.calendarheatmaplibrary.framework.data.WeekDay"/>
 
         <import
             alias="Utils"
             type="com.eudycontreras.calendarheatmaplibrary.extensions.NumberExtensionsKt" />
-
         <import type="android.graphics.Typeface" />
     </data>
 
+    <com.eudycontreras.calendarheatmaplibrary.framework.BubbleLayoutView
+        android:id="@+id/info_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        app:bubbleColor="@color/design_default_color_primary"
+        app:bubbleCornerRadius="4dp"
+        app:bubblePointerLength="15dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:id="@+id/contributionCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:alpha="0.9"
+                android:gravity="center_vertical|end"
+                android:text="@{viewModel.frequencyData.countString + ` contributions`}"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="No contributions" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.eudycontreras.calendarheatmaplibrary.framework.BubbleLayoutView>
 </layout>

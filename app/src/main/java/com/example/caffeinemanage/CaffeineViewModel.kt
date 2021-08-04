@@ -1,6 +1,7 @@
 package com.example.caffeinemanage
 
 import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
 import com.eudycontreras.calendarheatmaplibrary.framework.data.*
 import com.eudycontreras.calendarheatmaplibrary.framework.data.Date
@@ -11,15 +12,33 @@ import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.random.Random
 
-internal class Caffeine_ViewModel : ViewModel() {
+internal class CaffeineViewModel : ViewModel() {
 
-    val demoData : HeatMapData
+    private val holidays: HashSet<Date> = hashSetOf(
+        Date(24, 11),
+        Date(25, 11),
+        Date(31, 11),
+        Date(1, 0)
+    )
+
+    private val vacation: HashSet<Date> = (1..17).map { Date(it, 6) }.toHashSet()
+
+    val demoData1: HeatMapData
+        get() = getSafeData()
+
+    val demoData2: HeatMapData
+        get() = getSafeData()
+
+    val demoData3: HeatMapData
+        get() = getSafeData()
+
+    val demoData4: HeatMapData
         get() = getSafeData()
 
     private fun getSafeData(): HeatMapData {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            generateData()
-        } else {
+//        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            generateData()
+//        } else {
             return HeatMapData(
                 options = HeatMapOptions(),
                 timeSpan = TimeSpan(
@@ -28,9 +47,10 @@ internal class Caffeine_ViewModel : ViewModel() {
                     weeks = emptyList()
                 )
             )
-        }
+//        }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun generateData(weekOffset: Long = 0): HeatMapData {
         val dateTo = LocalDate.now()
 
@@ -95,5 +115,17 @@ internal class Caffeine_ViewModel : ViewModel() {
                 weeks = weeks
             )
         )
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun LocalDate.toDate() : Date {
+        return Date(dayOfMonth, monthValue - 1, year)
+    }
+
+    private companion object {
+        const val DAYS_IN_WEEK = 7
+        const val WEEKS_IN_YEAR = 52
+
+        const val DEFAULT_DATE_FORMAT = "MMM dd, YYYY"
     }
 }

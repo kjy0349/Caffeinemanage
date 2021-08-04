@@ -7,13 +7,17 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+    dataBinding{
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.example.caffeinemanage"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,6 +38,7 @@ android {
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.github.EudyContreras:Calendar-HeatMap:v0.1'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.1'
