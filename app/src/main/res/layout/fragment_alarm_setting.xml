@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".alarm_setting">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/clock_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/clock" />
+
+    <TextView
+        android:id="@+id/alarm_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/clock_image"
+        android:layout_marginTop="40dp"
+        android:layout_toStartOf="@id/clock_image"
+        android:text="알람 사용"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/set_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alram_switch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="설정" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/alram_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch"
+        android:layout_toEndOf="@id/clock_image"
+        android:layout_below="@id/clock_image"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/timeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/set_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+
+</RelativeLayout>
