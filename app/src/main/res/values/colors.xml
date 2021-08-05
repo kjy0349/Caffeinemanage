@@ -15,4 +15,17 @@
     <color name="colorPrimaryLight">#323232</color>
     <color name="colorPrimaryVeryLight">#3C3C3C</color>
     <color name="colorAccent">#2D2D2D</color>
+
+    <color name="colorPrimary">#2D2D2D</color>
+
+    <color name="cellInfoBubble">#3C3C3C</color>
+
+
+    <color name="colorMinAlt0">#c6e48a</color>
+    <color name="colorMaxAlt0">#1a6127</color>
+
+    <color name="colorMinAlt1">#8AD2E4</color>
+    <color name="colorMaxAlt1">#1A4061</color>
+    <color name="background">#2D2D2D</color>
+    <color name="colorEmpty">#3C3C3C</color>
 </resources>
