@@ -22,9 +22,10 @@ class SettingFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_setting, container, false)
         val noti_button = root.findViewById<Button>(R.id.set_noti)
         //fragment에서는 (activity as FragmentActivity)키워드를 사용
-        val transaction = (activity as FragmentActivity).supportFragmentManager.beginTransaction()
+        val fragmentmanager = (activity as FragmentActivity).supportFragmentManager
 
         noti_button.setOnClickListener {
+            var transaction = fragmentmanager.beginTransaction()
             transaction.replace(R.id.fragment_frame, alarm_setting())
             transaction.addToBackStack(null)//뒤로가기를 누르면 이전 프레그먼트로 되돌아감
             transaction.commit()

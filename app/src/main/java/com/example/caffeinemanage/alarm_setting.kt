@@ -12,10 +12,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.TimePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import android.widget.Toast
+import androidx.appcompat.widget.SwitchCompat
 
 class alarm_setting : Fragment() {
     @SuppressLint("SimpleDateFormat")
@@ -26,6 +29,8 @@ class alarm_setting : Fragment() {
         val root = inflater.inflate(R.layout.fragment_alarm_setting, container, false)
         val setting_btn = root.findViewById<Button>(R.id.set_btn)
         val time_tv = root.findViewById<TextView>(R.id.timeView)
+        val switch1 = root.findViewById<SwitchCompat>(R.id.alarm_switch)
+
         setting_btn.setOnClickListener{
             val cal = java.util.Calendar.getInstance()
             val timeSetListener = TimePickerDialog.OnTimeSetListener{timePicker, hour, minute ->
@@ -37,15 +42,19 @@ class alarm_setting : Fragment() {
                 .show()
         }
 
+        switch1.isChecked = false
+        switch1.setOnCheckedChangeListener{CompoundButton, onSwitch ->
+            //  스위치가 켜지면
+            if (onSwitch){
+                Toast.makeText(context, "switch on", Toast.LENGTH_SHORT).show()
+            }
+            //  스위치가 꺼지면
+            else{
+                Toast.makeText(context, "switch off", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         return root
-    }
-
-    private fun openTimePicker(){
-        val isSystem24Hour = DateFormat.is24HourFormat(requireContext())
-        val clockFormat = if(isSystem24Hour) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
-
-        val picker = MaterialTimePicker.Builder().setTimeFormat(clockFormat).setHour(12).setMinute(0).setTitleText("SET ALARM").build()
-        picker.show(childFragmentManager,"TAG")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
