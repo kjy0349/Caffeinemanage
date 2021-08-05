@@ -8,6 +8,7 @@ import com.eudycontreras.calendarheatmaplibrary.framework.data.Date
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
+import java.time.temporal.TemporalAdjusters
 import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.random.Random
@@ -36,9 +37,9 @@ internal class CaffeineViewModel : ViewModel() {
         get() = getSafeData()
 
     private fun getSafeData(): HeatMapData {
-//        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            generateData()
-//        } else {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            generateData()
+        } else {
             return HeatMapData(
                 options = HeatMapOptions(),
                 timeSpan = TimeSpan(
@@ -47,15 +48,17 @@ internal class CaffeineViewModel : ViewModel() {
                     weeks = emptyList()
                 )
             )
-//        }
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun generateData(weekOffset: Long = 0): HeatMapData {
-        val dateTo = LocalDate.now()
+        val dateTo = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth())
 
-        val origin = dateTo.minusYears(1).with(WeekFields.SUNDAY_START.dayOfWeek(), 1L).minusWeeks(weekOffset)
-        var dateFrom = dateTo.minusYears(1).with(WeekFields.SUNDAY_START.dayOfWeek(), 1L).minusWeeks(weekOffset)
+        val origin = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth())
+//        var dateFrom = dateTo.plusDays(31).minusDays(31)
+//        var dateFrom = dateTo.minusMonths(1).with(WeekFields.SUNDAY_START.dayOfWeek(), 1L).minusWeeks(weekOffset)
+        var dateFrom = origin
 
         val weeks: MutableList<Week> = mutableListOf()
 

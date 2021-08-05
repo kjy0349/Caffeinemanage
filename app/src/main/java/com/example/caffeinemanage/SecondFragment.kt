@@ -25,7 +25,7 @@ class SecondFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.run {
-            ViewModelProvider(this,ViewModelProvider.NewInstanceFactory()).get(viewModel::class.java)
+            ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(viewModel::class.java)
         } ?: throw Exception("Invalid Activity")
     }
 
