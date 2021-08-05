@@ -26,7 +26,6 @@
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
             android:paddingEnd="8dp">
-
             <TextView
                 android:id="@+id/contributionCountLabel"
                 android:layout_width="wrap_content"
@@ -41,6 +40,22 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="No contributions" />
+
+            <TextView
+                android:id="@+id/contributionDateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:alpha="0.4"
+                android:gravity="center_vertical|start"
+                android:text="@{`on ` + viewModel.dateString }"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/contributionCountLabel"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="on Apr, 6, 2020" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.eudycontreras.calendarheatmaplibrary.framework.BubbleLayoutView>
