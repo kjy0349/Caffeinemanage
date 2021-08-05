@@ -8,9 +8,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.bumptech.glide.Glide
+import com.example.caffeinemanage.databinding.MainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +22,10 @@ class MainActivity : AppCompatActivity() {
         var cf_str = String.format("%d mg", mg)
         cf_result.text = cf_str
     }
+    private val viewModel: CaffeineViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         val fragmentmanager = supportFragmentManager
         fragmentmanager.beginTransaction().add(R.id.fragment_frame, FirstFragment()).commit()

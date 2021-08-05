@@ -18,14 +18,15 @@ class FirstFragment : Fragment() {
             savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         var caffeine : Int = 0
-        val button1 = view?.findViewById<Button>(R.id.button1)
-        val textview = view?.findViewById<TextView>(R.id.caffeine_result)
+        val root = inflater.inflate(R.layout.fragment_first, container, false)
+        val button1 = root.findViewById<Button>(R.id.button1)
+        val textview = root.findViewById<TextView>(R.id.caffeine_result)
 
-        button1?.setOnClickListener({
+        button1.setOnClickListener({
             caffeine += 10
             textview?.text = String.format("%d mg",caffeine)
         })
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
