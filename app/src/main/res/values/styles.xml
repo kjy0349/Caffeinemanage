@@ -5,6 +5,7 @@
         <item name="android:colorBackground">@color/my_app_background_color</item>
         <item name="colorError">@color/my_app_error_color</item>
 
+
         <!-- New MaterialComponents attributes. -->
 <!--        <item name="colorPrimaryVariant">@color/my_app_primary_variant_color</item>-->
 <!--        <item name="colorSecondaryVariant">@color/my_app_secondary_variant_color</item>-->
@@ -28,10 +29,5 @@
         <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
         <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
         <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
-    </style>
-    <style name="MyTimePickerTheme" parent="android:Widget.Material.Light.TimePicker">
-        <item name="android:timePickerMode">spinner</item>
-
-        <item name="android:timePickerStyle">@style/MyTimePickerTheme</item>
     </style>
 </resources>

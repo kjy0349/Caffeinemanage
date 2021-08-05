@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.page_4 -> {
                     fragmentmanager.beginTransaction().replace(R.id.fragment_frame, SettingFragment()).commit()
+                    //fragmentmanager.beginTransaction().replace(R.id.fragment_frame, alarm_setting()).commit()
                     true
                 }
 

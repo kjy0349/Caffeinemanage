@@ -7,6 +7,7 @@
     tools:context=".alarm_setting">
 
     <!-- TODO: Update blank fragment layout -->
+
     <ImageView
         android:id="@+id/clock_image"
         android:layout_width="100dp"
@@ -50,6 +51,15 @@
         android:layout_below="@id/set_btn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
+
+    <TextView
+        android:id="@+id/timeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="설정시간"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/set_btn"
+        android:layout_marginTop="50dp"/>
 
 
 </RelativeLayout>
