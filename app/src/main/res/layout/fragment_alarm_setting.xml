@@ -60,5 +60,23 @@
         android:layout_below="@id/set_btn"
         android:layout_marginTop="50dp"/>
 
+    <TextView
+        android:id="@+id/hourview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="시"
+        android:layout_below="@id/timeView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:id="@+id/minuteview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="분"
+        android:layout_below="@id/timeView"
+        android:layout_toRightOf="@id/hourview"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

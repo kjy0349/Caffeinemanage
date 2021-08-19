@@ -21,7 +21,6 @@ import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
 
 class alarm_setting : Fragment() {
-    @SuppressLint("SimpleDateFormat")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -31,18 +30,29 @@ class alarm_setting : Fragment() {
         val time_tv = root.findViewById<TextView>(R.id.timeView)
         val switch1 = root.findViewById<SwitchCompat>(R.id.alarm_switch)
 
+        val hview = root.findViewById<TextView>(R.id.hourview)
+        val mview = root.findViewById<TextView>(R.id.minuteview)
+
+        val cal = java.util.Calendar.getInstance()
+        var h = cal.get(java.util.Calendar.HOUR_OF_DAY) //timePicker.getHour()
+        var m = cal.get(java.util.Calendar.MINUTE)
+        val timeSetListener = TimePickerDialog.OnTimeSetListener{timePicker, hour, minute ->
+            cal.set(java.util.Calendar.HOUR_OF_DAY,hour)
+            cal.set(java.util.Calendar.MINUTE,minute)
+            time_tv.text= java.text.SimpleDateFormat("a hh:mm").format(cal.time)
+            //timepicker에서 설정한 시간을 변수에 담아 저장
+            var ampm = if (h > 12)  "PM" else "AM"
+            var hours = if (h >12)  h-12 else h
+            hview.text = hours.toString()
+            mview.text = m.toString() + ampm
+        }
+
         setting_btn.setOnClickListener{
-            val cal = java.util.Calendar.getInstance()
-            val timeSetListener = TimePickerDialog.OnTimeSetListener{timePicker, hour, minute ->
-                cal.set(java.util.Calendar.HOUR_OF_DAY,hour)
-                cal.set(java.util.Calendar.MINUTE,minute)
-                time_tv.text= java.text.SimpleDateFormat("a hh:mm").format(cal.time)
-            }
             TimePickerDialog(activity,timeSetListener,cal.get(java.util.Calendar.HOUR_OF_DAY),cal.get(java.util.Calendar.MINUTE),false)
                 .show()
         }
 
-        switch1.isChecked = false
+        switch1.isChecked = false //처음 상태를 비활성화로 설정
         switch1.setOnCheckedChangeListener{CompoundButton, onSwitch ->
             //  스위치가 켜지면
             if (onSwitch){
