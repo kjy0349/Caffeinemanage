@@ -56,8 +56,7 @@ internal class CaffeineViewModel : ViewModel() {
         val dateTo = LocalDate.now().with(TemporalAdjusters.lastDayOfMonth())
 
         val origin = LocalDate.now().with(TemporalAdjusters.firstDayOfMonth())
-//        var dateFrom = dateTo.plusDays(31).minusDays(31)
-//        var dateFrom = dateTo.minusMonths(1).with(WeekFields.SUNDAY_START.dayOfWeek(), 1L).minusWeeks(weekOffset)
+
         var dateFrom = origin
 
         val weeks: MutableList<Week> = mutableListOf()
@@ -129,6 +128,6 @@ internal class CaffeineViewModel : ViewModel() {
         const val DAYS_IN_WEEK = 7
         const val WEEKS_IN_YEAR = 52
 
-        const val DEFAULT_DATE_FORMAT = "MMM dd, YYYY"
+        const val DEFAULT_DATE_FORMAT = "MMM dd, YYYY" // MMM dd, yyyy	Mar 06, 2007
     }
 }

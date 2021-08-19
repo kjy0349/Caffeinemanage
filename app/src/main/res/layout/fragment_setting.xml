@@ -32,10 +32,10 @@
         android:layout_marginTop="20dp"/>
 
     <Button
-        android:id="@+id/set_logout"
+        android:id="@+id/set_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그아웃"
+        android:text="로그인"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/set_noti"
         android:layout_marginTop="20dp"/>

@@ -1,13 +1,20 @@
 package com.example.caffeinemanage
 
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
+import com.google.firebase.auth.FirebaseAuth
 
 
 class SettingFragment : Fragment() {
@@ -23,7 +30,12 @@ class SettingFragment : Fragment() {
         val noti_button = root.findViewById<Button>(R.id.set_noti)
         //fragment에서는 (activity as FragmentActivity)키워드를 사용
         val fragmentmanager = (activity as FragmentActivity).supportFragmentManager
+        val login_button = root.findViewById<Button>(R.id.set_login)
 
+        login_button.setOnClickListener {
+            val loginIntent = Intent(this.activity, LoginActivity::class.java)
+            startActivity(loginIntent)
+        }
         noti_button.setOnClickListener {
             var transaction = fragmentmanager.beginTransaction()
             transaction.replace(R.id.fragment_frame, alarm_setting())
