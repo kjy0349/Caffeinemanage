@@ -34,8 +34,13 @@ class SettingFragment : Fragment() {
         val login_button = root.findViewById<Button>(R.id.set_login)
 
         login_button.setOnClickListener {
-            val loginIntent = Intent(this.activity, LoginActivity::class.java)
-            startActivity(loginIntent)
+            if(login_button.text == "로그인"){
+                val loginIntent = Intent(this.activity, LoginActivity::class.java)
+                startActivity(loginIntent)
+            } else{
+                val logoutIntent = Intent(this.activity, LogoutActivity::class.java)
+                startActivity(logoutIntent)
+            }
         }
         noti_button.setOnClickListener {
             var transaction = fragmentmanager.beginTransaction()

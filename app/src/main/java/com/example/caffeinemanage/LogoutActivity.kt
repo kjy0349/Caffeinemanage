@@ -1,6 +1,7 @@
 package com.example.caffeinemanage
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil.setContentView
@@ -14,8 +15,9 @@ class LogoutActivity : Activity() {
         AuthUI.getInstance()
             .signOut(this)
             .addOnCompleteListener {
-                // ...
             }
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
 
     }
 }
