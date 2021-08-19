@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.findFragment
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
@@ -21,7 +22,6 @@ class SettingFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +30,7 @@ class SettingFragment : Fragment() {
         val noti_button = root.findViewById<Button>(R.id.set_noti)
         //fragment에서는 (activity as FragmentActivity)키워드를 사용
         val fragmentmanager = (activity as FragmentActivity).supportFragmentManager
+
         val login_button = root.findViewById<Button>(R.id.set_login)
 
         login_button.setOnClickListener {
@@ -41,6 +42,11 @@ class SettingFragment : Fragment() {
             transaction.replace(R.id.fragment_frame, alarm_setting())
             transaction.addToBackStack(null)//뒤로가기를 누르면 이전 프레그먼트로 되돌아감
             transaction.commit()
+        }
+        if(activity?.intent?.hasExtra("user_info")!!){
+            login_button.text = "로그아웃"
+        } else{
+            login_button.text = "로그인"
         }
         // Inflate the layout for this fragment
         return root

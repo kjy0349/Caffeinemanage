@@ -4,10 +4,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import com.example.caffeinemanage.databinding.MainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -49,7 +51,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         if(intent.hasExtra("user_info")){
-            fragmentmanager.beginTransaction().replace(R.id.fragment_frame,SettingFragment()).commit()
             val user_info = intent.getStringExtra("user_info")
             Toast.makeText(this,user_info,Toast.LENGTH_LONG).show()
         }
